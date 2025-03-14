@@ -1,0 +1,13 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Welcome to the Blog Web App</h1>
+
+<div class="form-div">
+    <form action="/save" method="post" id="blog-form" class="">
+        <input type="text" name="title" placeholder="Title" id="blog-title">
+        <textarea name="content" placeholder="Type your blog here..." id="blog-content"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<%- include("partials/footer.ejs") %>
