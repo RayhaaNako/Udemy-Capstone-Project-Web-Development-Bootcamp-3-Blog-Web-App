@@ -1,0 +1,24 @@
+<%- include("partials/header.ejs") %>
+
+  <div class="card container edit-post d-flex flex-column justify-content-start align-items-start">
+    <form action="/update" method="post" class="edit-form">
+      <div class="d-flex flex-column">
+        <textarea type="text" name="title" placeholder="<%= title %>" id="edit-title" required></textarea>
+        <textarea name="content" placeholder="<%= content %>" id="edit-content" required></textarea>
+        <input hidden type="text" name="id" value="<%= postId %>" />
+        <input hidden type="text" name="date" value="<%= date %>" />
+      </div>
+      <div class="update-ico">
+        <button type="submit" class="update-btn">
+          <i class="fas fa-floppy-disk"></i>
+        </button>
+      </div>
+    </form>
+    <form action="/view/<%= postId %>" method="GET" class="cancel-ico">
+      <button type="submit" class="cancel-btn">
+        <i class="fas fa-xmark"></i>
+      </button>
+    </form>
+  </div>
+
+  <%- include("partials/footer.ejs") %>

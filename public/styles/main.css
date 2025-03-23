@@ -4,24 +4,481 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 1280px;
+}
+
+.wrapper-main {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid;
+    grid-template-columns: 1fr 800px;
+    height: fit-content;
+    width: 100%;
+}
+
+.title-form {
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    padding-right: 25px;
+}
+
+.web-title {
+    color: #ffffff;
+    text-align:left;
+    margin-bottom: 30px;
+    border-bottom: solid 0.5px #a7a7a7;
+    width: 90%;
+}
+
+.web-title h1,
+.web-title p {
+    padding-bottom: 10px;
+}
+
 .form-div {
-    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#post-form {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 500px;
+    gap: 15px;
+}
+
+#post-title-form , #post-content-form {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border-radius: 5px;
+    resize: none;
+    border: none;
+}
+
+#post-title-form:focus, #post-content-form:focus {
+    outline: none;
+}
+
+#post-title-form::placeholder, #post-content-form::placeholder {
+    color: #b8b8b8;
+}
+
+#post-title-form::-webkit-input-placeholder, #post-content-form::-webkit-input-placeholder {
+    color: #b8b8b8;
+}
+
+#post-title-form {
+    font-size: 36px;
+    font-weight: bold;
+    height: 72px;
+}
+
+#post-content-form {
+    height: 500px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+#post-submit-btn {
+    background-color: #ffffff;
+    border: none;
+    width: 150px;
+    height: 2em;
+    border-radius: 5px;
+}
+
+#post-submit-btn:hover {
+    background-color: #d3d3d3;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.post-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.post-div {
+    background-color: #2b2b2b;
+    border: solid 1px #ffffff;
+    border-radius: 10px;
+    padding: 10px 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin;
+    height: 100%;
+    gap: 25px;
+    overflow-y: scroll;
+}
+
+.post-title a:hover {
+    color: #5c5c5c;
+}
+
+.posts {
+    overflow: hidden;
+    height: 200px;
+    position: relative;
     padding: 10px;
 }
 
-#blog-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
+.delete-ico,
+.edit-ico,
+.back-ico,
+.update-ico,
+.cancel-ico {
+    position: absolute;
+    bottom: 25px;
+    z-index: 10;
 }
 
-#blog-title , #blog-content, button {
+.delete-ico,
+.cancel-ico {
+    right: 70px;
+}
+
+.edit-ico,
+.update-ico {
+    right: 120px;
+}
+
+.back-ico {
+    left: 70px;
+}
+
+.delete-btn,
+.edit-btn,
+.back-btn,
+.update-btn,
+.cancel-btn {
+    background-color: transparent;
+    border: none;
+    color: #2b2b2b;
+    font-size: 24px;
+    padding: 5px 8px;
+    margin: 5px;
+    transition: all 0.2s;
+}
+
+.delete-btn:hover,
+.cancel-btn:hover {
+    color: #dc3545;
+}
+
+.edit-btn:hover,
+.update-btn:hover {
+    color: rgb(1, 184, 1);
+}
+
+.back-btn:hover {
+    color: #858585;
+}
+
+.post-content {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.view-post {
+    padding: 75px 75px 100px 75px;
+    width: 1280px;
+    height: 720px;
+}
+
+.view-post h1 {
+    border-bottom: solid 1px black;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.view-content {
+    padding-right: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.view-post p {
+    text-align: justify;
+}
+
+.edit-post {
+    padding: 75px 75px 100px 75px;
+    width: 1280px;
+    height: 720px;
+}
+
+.edit-form #edit-title,
+.edit-form #edit-content {
     border: none;
     resize: none;
-    width: 25%;
-} 
+}
 
-#blog-title:focus, #blog-content:focus {
+.edit-form #edit-title:focus,
+.edit-form #edit-content:focus {
     outline: none;
-} 
+}
+
+.edit-form #edit-title {
+    margin-top: -5px;
+    margin-bottom: 8px;
+    font-size: 2.5em;
+    font-weight: 500;
+    height: 1.625em;
+    border-bottom: solid 1px #2b2b2b;
+    width: 1128px;
+}
+
+.edit-form #edit-content {
+    padding-right: 10px;
+    height: 476px;
+    overflow-y: auto;
+    text-align: justify;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    position: absolute;
+    color: #ffffff;
+    bottom: 15px;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgb(43, 43, 43, 0.5);
+}
+
+/* Responsive Styles */
+
+/* Tablet (Large) - 992px and below */
+@media (max-width: 992px) {
+    .wrapper-main {
+        grid-template-columns: 1fr;
+    }
+
+    .title-form {
+        padding-right: 0;
+    }
+
+    .web-title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .view-post, .edit-post {
+        width: 90%;
+        height: auto;
+        padding: 40px 40px 80px 40px;
+    }
+
+    .edit-form #edit-title {
+        width: 100%;
+    }
+
+    #post-form {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    #post-content-form {
+        height: 350px;
+    }
+}
+
+/* Tablet (Medium) - 768px and below */
+@media (max-width: 768px) {
+    .web-title h1 {
+        font-size: 26px;
+    }
+
+    .post-div {
+        padding: 10px 15px;
+    }
+
+    .view-post, .edit-post {
+        padding: 30px 30px 70px 30px;
+    }
+
+    .delete-ico, .cancel-ico {
+        right: 40px;
+    }
+
+    .edit-ico, .update-ico {
+        right: 80px;
+    }
+
+    .back-ico {
+        left: 40px;
+    }
+
+    #post-title-form {
+        font-size: 28px;
+        height: 56px;
+    }
+
+    #post-content-form {
+        height: 300px;
+    }
+}
+
+/* Mobile (Large) - 576px and below */
+@media (max-width: 576px) {
+    .web-title h1 {
+        font-size: 22px;
+    }
+
+    .view-post, .edit-post {
+        padding: 20px 20px 60px 20px;
+    }
+
+    .view-post h1 {
+        font-size: 24px;
+    }
+
+    .delete-ico, .cancel-ico {
+        right: 20px;
+    }
+
+    .edit-ico, .update-ico {
+        right: 60px;
+    }
+
+    .back-ico {
+        left: 20px;
+    }
+
+    .delete-btn, .edit-btn, .back-btn, .update-btn, .cancel-btn {
+        font-size: 20px;
+    }
+
+    #post-title-form {
+        font-size: 24px;
+        height: 48px;
+    }
+
+    #post-content-form {
+        height: 250px;
+    }
+}
+
+/* Mobile (Medium) - 420px and below */
+@media (max-width: 420px) {
+    .web-title h1 {
+        font-size: 20px;
+    }
+
+    .post-div {
+        padding: 10px;
+    }
+
+    .view-post, .edit-post {
+        padding: 15px 15px 50px 15px;
+    }
+
+    .view-content {
+        max-height: 350px;
+    }
+
+    .delete-btn, .edit-btn, .back-btn, .update-btn, .cancel-btn {
+        font-size: 18px;
+        padding: 3px 5px;
+    }
+
+    #post-title-form {
+        font-size: 20px;
+        height: 40px;
+    }
+
+    #post-content-form {
+        height: 200px;
+    }
+
+    .edit-form #edit-title {
+        font-size: 1.8em;
+    }
+}
+
+/* Mobile (Small) - 360px and below */
+@media (max-width: 360px) {
+    .web-title h1 {
+        font-size: 18px;
+    }
+
+    .web-title p {
+        font-size: 14px;
+    }
+
+    .view-post h1 {
+        font-size: 20px;
+    }
+
+    .view-content {
+        max-height: 300px;
+        font-size: 14px;
+    }
+
+    .delete-ico, .cancel-ico {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .edit-ico, .update-ico {
+        right: 45px;
+        bottom: 15px;
+    }
+
+    .back-ico {
+        left: 15px;
+        bottom: 15px;
+    }
+
+    .delete-btn, .edit-btn, .back-btn, .update-btn, .cancel-btn {
+        font-size: 16px;
+        padding: 2px 4px;
+    }
+
+    #post-title-form {
+        font-size: 18px;
+        height: 36px;
+    }
+
+    #post-content-form {
+        height: 180px;
+    }
+}

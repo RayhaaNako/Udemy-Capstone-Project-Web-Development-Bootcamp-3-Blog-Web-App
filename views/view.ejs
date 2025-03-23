@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+
+  <div class="card container view-post d-flex flex-column justify-content-start align-items-start">
+    <h1>
+      <%= title %>
+    </h1>
+    <div class="view-content">
+      <p>
+        <%= content %>
+      </p>
+    </div>
+    <form action="/" method="GET" class="back-ico">
+      <button type="submit" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+    </form>
+    <form action="/delete/<%= postId %>" method="POST" class="delete-ico">
+      <button type="submit" class="delete-btn">
+        <i class="fas fa-trash"></i>
+      </button>
+    </form>
+    <form action="/edit/<%= postId %>" method="GET" class="edit-ico">
+      <button type="submit" class="edit-btn">
+        <i class="fas fa-pen-to-square"></i>
+      </button>
+    </form>
+  </div>
+
+  <%- include("partials/footer.ejs") %>
